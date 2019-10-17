@@ -1,0 +1,35 @@
+
+<div class="container mt-5 mb-5">
+
+    <div class="accordion w-50 ml-auto mr-auto shadow p-3 mb-5 bg-white rounded" id="accordionNotebook">
+        <h3 class="mb-2" ><strong>Account notebook</strong></h3>
+
+        <div *ngIf="transactions.length == 0" class="w-50 ml-auto mr-auto mt-5 mb-5">
+            <p class="text-muted">No transactions are registered</p>
+        </div>
+
+        <ng-container *ngIf="transactions.length > 0">            
+            <ng-container *ngFor="let transaction of transactions">
+                <div class="card">
+                    <div class="card-header" id="headingOne{{transaction.id}}" [ngStyle]="{'background-color': transaction.type == 'CREDIT' ? '#00C851' : '#ff4444'}">
+                    <h2 class="mb-0">
+                        <button class="btn w-100 d-flex mt-3 button-header" type="button" data-toggle="collapse" [attr.data-target]="'#collapseOne' + transaction.id" aria-expanded="false" [attr.aria-controls]="'collapseOne' + transaction.id">
+                            <p class="w-50 text-left ml-4"><strong>{{transaction.type}}</strong></p>
+                            <p class="w-50 text-right mr-5"><strong>{{transaction.type == 'CREDIT' ? '+' : '-'}} $ {{transaction.amount |  number:'1.0-0'}}</strong></p>           
+                        </button>
+                    </h2>
+                    </div>
+                
+                    <div id="collapseOne{{transaction.id}}" class="collapse" [attr.aria-labelledby]= "'headingOne' + transaction.id" data-parent="#accordionNotebook">
+                    <div class="card-body">
+                        <div class="w-100 d-flex">
+                            <p class="w-50 text-left ml-4 mt-3"><i class="far fa-calendar-check"></i> <strong>  {{transaction.effectiveDate | date: 'yyyy-MM-dd hh:mm'}}</strong></p>
+                            <p class="w-50 text-right mr-4 mt-3"><strong>Transaction number: </strong>{{transaction.id}}</p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </ng-container>
+        </ng-container>
+    </div>            
+</div>

@@ -1,0 +1,27 @@
+.container {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.button-header {
+    background-color: transparent;
+    &:focus {
+        box-shadow: none;
+    }
+    & p { 
+        color: black;
+        font-size: 1.2rem;
+    }
+
+}
+
+.fa-calendar {
+    font-size: 1.2rem;
+}
+
+@media (max-width: 575.98px) { 
+    
+}
+
+@media (max-width: 767.98px) { 
+
+}
