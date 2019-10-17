@@ -21,6 +21,9 @@ In notebook-frontend folder, requires angular cli installed:
 						in notebook-api\src\main\resources\templates (index.html) 
 						and notebook-api\src\main\resources\static (css, js, img)
 	-ng-serve -> compile and run code in local
-	
 
+To run the app correctly, you must first compile the frontend and copy the compiled in the directories 
+mentioned, after this you can compile and run the api. 
+Once up, when visiting "localhost:8080/" you can see the frontend, and in "localhost:8080/api" will have 
+the operations of rest service.
 	
